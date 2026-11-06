@@ -93,6 +93,16 @@ export const story = [
   },
   {
     "act": "ACT II · THE LEGION",
+    "place": "MARITIME MISSION · CÔTE D’IVOIRE",
+    "title": "One final mission. At sea.",
+    "narration": "My last mission was a maritime deployment aboard a ship, which included Côte d’Ivoire. Another environment, another way of serving.",
+    "detail": "Final mission: maritime deployment aboard a ship involving Côte d’Ivoire.",
+    "scene": "ship",
+    "palette": "legion",
+    "image": ""
+  },
+  {
+    "act": "ACT II · THE LEGION",
     "place": "2REI · CCL COMPANY",
     "title": "The next rank.",
     "narration": "I moved to the CCL company for around one year. During that period, I was promoted to sergent-chef.",
