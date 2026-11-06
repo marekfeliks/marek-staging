@@ -2,20 +2,20 @@
 export const story = [
   {
     "act": "ACT I · THE DEPARTURE",
-    "place": "POLAND → FRANCE",
-    "title": "The decision to leave.",
-    "narration": "One plane. One departure. A step into a country where everything would be new.",
-    "detail": "Leaving Poland and arriving in France.",
+    "place": "POLAND → FRANCE · AUGUST 2009",
+    "title": "A decision to change.",
+    "narration": "August 2009. I left Poland by plane for France. Sport had always been part of my life, but I wanted more structure, discipline, and a clear purpose.",
+    "detail": "Leaving Poland by plane for France in August 2009.",
     "scene": "flight",
     "palette": "origin",
     "image": ""
   },
   {
     "act": "ACT I · THE DEPARTURE",
-    "place": "FRANCE",
-    "title": "A new country. A new beginning.",
-    "narration": "The plane lands in France. The destination is clear; the journey ahead is not.",
-    "detail": "Arrival in France.",
+    "place": "FRANCE · FOREIGN LEGION RECRUITMENT",
+    "title": "No detour.",
+    "narration": "After landing in France, I went straight to a French Foreign Legion recruiting centre. This was the first concrete step toward the life I wanted to build.",
+    "detail": "Going directly to the French Foreign Legion recruiting centre.",
     "scene": "city",
     "palette": "origin",
     "image": ""
