@@ -52,7 +52,7 @@
             <button class="button-plain icon-control" id="previous" type="button" aria-label="Previous chapter" title="Previous chapter">←</button>
             <button class="play-button" id="play-pause" type="button" aria-label="Play documentary"><span id="play-glyph" aria-hidden="true">▶</span><span id="play-label">PLAY STORY</span></button>
             <button class="button-plain icon-control" id="next" type="button" aria-label="Next chapter" title="Next chapter">→</button>
-            <div class="control-tip">USE ← → TO EXPLORE</div>
+            <button class="button-plain chapters-trigger" id="chapter-index-open" type="button" aria-haspopup="dialog" aria-controls="chapter-index-dialog">ALL CHAPTERS <span aria-hidden="true">☷</span></button><div class="control-tip">USE ← → TO EXPLORE</div>
           </div>
           <a href="#afterword" class="explore-link">BEYOND THE STORY <span aria-hidden="true">↓</span></a>
         </div>
@@ -75,6 +75,15 @@
       <footer>© <span id="year"></span> MAREK FELIKS <span>FELIKS.FR / PERSONAL DOCUMENTARY</span></footer>
     </section>
   </main>
+  <dialog id="chapter-index-dialog" class="chapter-index-dialog" aria-labelledby="chapter-index-title">
+    <div class="chapter-index-shell">
+      <header class="chapter-index-header">
+        <div><p class="chapter-index-overline">FELIKS / THE JOURNEY</p><h2 id="chapter-index-title">Choose a chapter.</h2><p class="chapter-index-subtitle">Explore the story in any order.</p></div>
+        <button type="button" class="chapter-index-close" id="chapter-index-close" aria-label="Close chapter index">✕</button>
+      </header>
+      <div id="chapter-index-list" class="chapter-index-list"></div>
+    </div>
+  </dialog>
   <noscript><div class="noscript-warning">The interactive story requires JavaScript. Enable JavaScript to explore the chapters.</div></noscript>
 </body>
 </html>
