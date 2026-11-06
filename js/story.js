@@ -14,9 +14,9 @@ export const story = [
   {
     "act": "ACT I · THE DEPARTURE",
     "place": "NICE → AUBAGNE · AUGUST 2009",
-    "title": "Straight to the Legion.",
-    "narration": "I landed in Nice and went straight to the French Foreign Legion recruiting centre. About three days later, we travelled together to Aubagne for the recruitment process.",
-    "detail": "Joining the recruiting centre in Nice, then travelling to Aubagne for selection.",
+    "title": "Recruitment. Nice to Aubagne.",
+    "narration": "I landed in Nice and went straight to the Foreign Legion recruiting centre. After about three days, I travelled with the other recruits to Aubagne to complete the recruitment and selection process.",
+    "detail": "One recruitment chapter: the Nice recruiting centre, followed by selection in Aubagne.",
     "scene": "city",
     "palette": "origin",
     "image": ""
@@ -64,9 +64,9 @@ export const story = [
   {
     "act": "ACT II · THE LEGION",
     "place": "CENTRAL AFRICAN REPUBLIC · FIRST MISSION",
-    "title": "On the protection detail.",
-    "narration": "In the Central African Republic, I served as a radio operator on an assignment involving the protection of the chef de corps.",
-    "detail": "First RCA mission: radio operator during protection of the unit commander.",
+    "title": "Radio operator. First RCA mission.",
+    "narration": "For my first deployment to the Central African Republic, I was still serving in the 4th Company but was temporarily attached to CCL as a radio operator, including during protection of the chef de corps.",
+    "detail": "First RCA mission: temporarily attached from 4th Company to CCL as a radio operator.",
     "scene": "radio",
     "palette": "legion",
     "image": ""
@@ -74,9 +74,9 @@ export const story = [
   {
     "act": "ACT II · THE LEGION",
     "place": "CENTRAL AFRICAN REPUBLIC · SECOND MISSION",
-    "title": "A different kind of liaison.",
-    "narration": "I returned to the Central African Republic in a three-person detachment with an officer and an NCO, working in liaison with MINUSCA and NATO.",
-    "detail": "Second RCA mission: detached liaison role with an officer and an NCO, involving MINUSCA and NATO.",
+    "title": "A new assignment. Second RCA mission.",
+    "narration": "I returned to the Central African Republic with my unit, the 4th Company. Only after arriving was I assigned to a three-person liaison detachment alongside an officer and an NCO, working with MINUSCA and EUTM-RCA.",
+    "detail": "Second RCA mission: deployed with 4th Company, then assigned to a three-person liaison role involving MINUSCA and EUTM-RCA.",
     "scene": "network",
     "palette": "legion",
     "image": ""
