@@ -12,7 +12,10 @@ $('#chapter-total').textContent=story.length;
 function render(index,animate=true){
  current=Math.max(0,Math.min(story.length-1,index));
  const c=story[current],motion=animate&&!reduce.matches;
- copy.classList.remove('copy-enter');if(motion)void copy.offsetWidth;
+ copy.classList.remove('copy-enter');
+ copy.classList.toggle('long-title', c.title.length > 28);
+ copy.scrollTop=0;
+ if(motion)void copy.offsetWidth;
  $('#act-label').textContent=c.act;$('#place-label').textContent=c.place;$('#chapter-title').textContent=c.title;$('#narration').textContent=c.narration;
  $('#chapter-number').textContent=String(current+1).padStart(2,'0');$('#side-index').textContent=String(current+1).padStart(2,'0')+'—'+story.length;
  slider.value=current;slider.setAttribute('aria-valuetext',(current+1)+' of '+story.length+': '+c.detail);
