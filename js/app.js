@@ -1,5 +1,6 @@
 import {story} from './story.js';
 import {sceneArt} from './art.js';
+import {setupChapterIndex} from './chapter-index.js';
 const $=s=>document.querySelector(s);
 const film=$('#film'),backdrop=$('#backdrop'),drawing=$('#art-holder'),copy=$('#chapter-content'),slider=$('#scrubber'),dots=$('#chapter-dots'),play=$('#play-pause');
 const reduce=window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -19,14 +20,19 @@ function render(index,animate=true){
  if(c.image){backdrop.style.setProperty('--photo','url("'+encodeURI(c.image).replaceAll('"','%22')+'")');backdrop.classList.add('has-photo')}else backdrop.style.removeProperty('--photo');
  [...dots.children].forEach((d,i)=>d.classList.toggle('is-active',i<=current));
  if(motion)copy.classList.add('copy-enter');film.dataset.chapter=current+1;
+ document.dispatchEvent(new CustomEvent('feliks:chapterchange',{detail:{index:current}}));
 }
 function stop(){playing=false;clearInterval(timer);timer=null;$('#play-glyph').textContent='▶';$('#play-label').textContent='PLAY STORY';play.setAttribute('aria-label','Play documentary')}
 function start(){if(playing)return;if(current===story.length-1)render(0);playing=true;$('#play-glyph').textContent='Ⅱ';$('#play-label').textContent='PAUSE STORY';play.setAttribute('aria-label','Pause documentary');timer=setInterval(()=>{if(current<story.length-1)render(current+1);else stop()},7800)}
-function navigate(i){if(playing)stop();render(i)}
+function navigate(i){if(playing)stop();render(i);history.replaceState(null,'','#chapter-'+(current+1))}
 $('#previous').addEventListener('click',()=>navigate(current-1));
 $('#next').addEventListener('click',()=>navigate(current+1));
 slider.addEventListener('input',e=>navigate(Number(e.target.value)));
 play.addEventListener('click',()=>playing?stop():start());
 window.addEventListener('keydown',e=>{if(e.altKey||e.ctrlKey||e.metaKey||document.activeElement===slider)return;if(['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName))return;if(!film.contains(document.activeElement)&&window.scrollY>film.clientHeight*.5)return;if(e.key==='ArrowRight'){e.preventDefault();navigate(current+1)}if(e.key==='ArrowLeft'){e.preventDefault();navigate(current-1)}});
 document.addEventListener('visibilitychange',()=>{if(document.hidden)stop()});
-$('#year').textContent=new Date().getFullYear();render(0,false);
+function chapterFromHash(){const match=location.hash.match(/^#chapter-(\\d+)$/);return match?Math.max(0,Math.min(story.length-1,Number(match[1])-1)):null}
+window.addEventListener('hashchange',()=>{const chosen=chapterFromHash();if(chosen!==null){stop();render(chosen)}});
+$('#year').textContent=new Date().getFullYear();
+render(chapterFromHash()??0,false);
+setupChapterIndex({story,navigate,getCurrent:()=>current});
