@@ -1,6 +1,7 @@
 import {story} from './story.js';
 import {sceneArt} from './art.js';
 import {setupChapterIndex} from './chapter-index.js';
+import {setupJourneyMap} from './journey.js';
 const $=s=>document.querySelector(s);
 const film=$('#film'),backdrop=$('#backdrop'),drawing=$('#art-holder'),copy=$('#chapter-content'),slider=$('#scrubber'),dots=$('#chapter-dots'),play=$('#play-pause');
 const reduce=window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -41,3 +42,4 @@ window.addEventListener('hashchange',()=>{const chosen=chapterFromHash();if(chos
 $('#year').textContent=new Date().getFullYear();
 render(chapterFromHash()??0,false);
 setupChapterIndex({story,navigate,getCurrent:()=>current});
+setupJourneyMap({story,navigate,getCurrent:()=>current});
