@@ -87,8 +87,8 @@
 .atlas-svg{display:block;width:100%;height:auto;aspect-ratio:2 / 1;background:#07111b}
 .atlas-land{fill:#263c48;stroke:#5b7884;stroke-width:1.1;stroke-opacity:.8;fill-rule:evenodd}
 .atlas-route{fill:none;stroke:#dfa766;stroke-opacity:.84;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:stroke-dashoffset .75s ease}
-.atlas-waypoint{opacity:0;transition:opacity .35s ease;cursor:pointer;outline:none}
-.atlas-waypoint.is-revealed{opacity:1}
+.atlas-waypoint{opacity:0;visibility:hidden;pointer-events:none;transition:opacity .35s ease;cursor:pointer;outline:none}
+.atlas-waypoint.is-revealed{opacity:1;visibility:visible;pointer-events:auto}
 .atlas-pin-hit{fill:transparent;stroke:transparent;stroke-width:12}
 .atlas-pin-halo{fill:none;stroke:#dfaf77;stroke-width:1.8;opacity:.45}
 .atlas-pin-core{fill:#e2b77f;stroke:#06131c;stroke-width:1.5}
