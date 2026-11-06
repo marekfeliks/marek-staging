@@ -35,7 +35,7 @@ export const story = [
     "act": "ACT II · THE LEGION",
     "place": "2e RÉGIMENT ÉTRANGER D'INFANTERIE · NÎMES",
     "title": "The 4th Company.",
-    "narration": "After basic training, I chose the 2REI in Nîmes and joined its 4th Company. I would spend around a decade at the regiment, building my military career.",
+    "narration": "After basic training, I chose the 2REI in Nîmes and joined its 4th Company, where I served for roughly ten years and built my military career.",
     "detail": "Choosing 2REI in Nîmes, joining the 4th Company, and serving there for roughly ten years.",
     "scene": "desert",
     "palette": "legion",
