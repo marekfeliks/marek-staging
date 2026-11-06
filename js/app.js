@@ -29,9 +29,9 @@ $('#previous').addEventListener('click',()=>navigate(current-1));
 $('#next').addEventListener('click',()=>navigate(current+1));
 slider.addEventListener('input',e=>navigate(Number(e.target.value)));
 play.addEventListener('click',()=>playing?stop():start());
-window.addEventListener('keydown',e=>{if(e.altKey||e.ctrlKey||e.metaKey||document.activeElement===slider)return;if(['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName))return;if(!film.contains(document.activeElement)&&window.scrollY>film.clientHeight*.5)return;if(e.key==='ArrowRight'){e.preventDefault();navigate(current+1)}if(e.key==='ArrowLeft'){e.preventDefault();navigate(current-1)}});
+window.addEventListener('keydown',e=>{if(e.altKey||e.ctrlKey||e.metaKey||document.querySelector('#chapter-index-dialog')?.open||document.activeElement===slider)return;if(['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName))return;if(!film.contains(document.activeElement)&&window.scrollY>film.clientHeight*.5)return;if(e.key==='ArrowRight'){e.preventDefault();navigate(current+1)}if(e.key==='ArrowLeft'){e.preventDefault();navigate(current-1)}});
 document.addEventListener('visibilitychange',()=>{if(document.hidden)stop()});
-function chapterFromHash(){const match=location.hash.match(/^#chapter-(\\d+)$/);return match?Math.max(0,Math.min(story.length-1,Number(match[1])-1)):null}
+function chapterFromHash(){const match=location.hash.match(/^#chapter-(\d+)$/);return match?Math.max(0,Math.min(story.length-1,Number(match[1])-1)):null}
 window.addEventListener('hashchange',()=>{const chosen=chapterFromHash();if(chosen!==null){stop();render(chosen)}});
 $('#year').textContent=new Date().getFullYear();
 render(chapterFromHash()??0,false);
