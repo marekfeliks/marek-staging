@@ -75,8 +75,8 @@ export const story = [
     "act": "ACT II · THE LEGION",
     "place": "CENTRAL AFRICAN REPUBLIC · SECOND MISSION",
     "title": "A new assignment. Second RCA mission.",
-    "narration": "I returned to the Central African Republic with my unit, the 4th Company. Only after arriving was I assigned to a three-person liaison detachment alongside an officer and an NCO, working with MINUSCA and EUTM-RCA.",
-    "detail": "Second RCA mission: deployed with 4th Company, then assigned to a three-person liaison role involving MINUSCA and EUTM-RCA.",
+    "narration": "I returned to the Central African Republic with my unit, the 4th Company. My role as a radio operator and my fluency in English led to a new assignment: joining an officer and an NCO in a three-person liaison detachment working with MINUSCA and EUTM-RCA.",
+    "detail": "Second RCA mission: deployed with 4th Company, then assigned to EUTM-RCA/MINUSCA liaison because of radio operator experience and English fluency.",
     "scene": "network",
     "palette": "legion",
     "image": ""
