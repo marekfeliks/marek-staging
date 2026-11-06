@@ -9,7 +9,10 @@ export const story = [
     "detail": "Leaving Poland for France in August 2009.",
     "scene": "flight",
     "palette": "origin",
-    "image": ""
+    "image": "",
+    "waypoints": [
+      "poland"
+    ]
   },
   {
     "act": "ACT I · THE DEPARTURE",
@@ -19,37 +22,48 @@ export const story = [
     "detail": "One recruitment chapter: the Nice recruiting centre, followed by selection in Aubagne.",
     "scene": "city",
     "palette": "origin",
-    "image": ""
+    "image": "",
+    "waypoints": [
+      "nice",
+      "aubagne"
+    ]
   },
   {
     "act": "ACT I · THE DEPARTURE",
-    "place": "4e RÉGIMENT ÉTRANGER · CASTELNAUDARY",
-    "title": "A new language. A new life.",
-    "narration": "Four months of basic training at Castelnaudary. I arrived without speaking French, so every day meant learning the language as well as the discipline and foundations of Legion life.",
-    "detail": "Four months of basic training at 4RE while learning French from scratch.",
+    "place": "4RE · 2ND COMPANY · CEV · CASTELNAUDARY",
+    "title": "Four months to begin again.",
+    "narration": "At 4RE's 2nd Company, CEV (Compagnie d'engagés volontaires), basic training lasted four months. I arrived without speaking French and had to learn the language while adapting to the discipline and demands of Legion life.",
+    "detail": "Four months of basic training and French-language learning at 4RE's 2nd CEV in Castelnaudary.",
     "scene": "people",
     "palette": "legion",
-    "image": ""
+    "image": "",
+    "waypoints": [
+      "castelnaudary-basic"
+    ]
   },
   {
     "act": "ACT II · THE LEGION",
-    "place": "2e RÉGIMENT ÉTRANGER D'INFANTERIE · NÎMES",
+    "place": "2REI · 4TH COMPANY · NÎMES",
     "title": "The 4th Company.",
-    "narration": "After basic training, I chose the 2REI in Nîmes and joined its 4th Company, where I served for roughly ten years and built my military career.",
-    "detail": "Choosing 2REI in Nîmes, joining the 4th Company, and serving there for roughly ten years.",
+    "narration": "After basic training, I chose the 2e Régiment étranger d'infanterie (2REI) in Nîmes. I joined the 4th Company and spent roughly ten years there, building my experience in the field and within the regiment.",
+    "detail": "Joining 2REI's 4th Company in Nîmes for roughly ten years.",
     "scene": "desert",
     "palette": "legion",
-    "image": ""
+    "image": "",
+    "waypoints": [
+      "nimes-4"
+    ]
   },
   {
     "act": "ACT II · THE LEGION",
-    "place": "2REI · COMMUNICATIONS",
+    "place": "2REI · 4TH COMPANY · TRANSMISSIONS",
     "title": "Every signal matters.",
-    "narration": "I became a radio operator and advanced through the ranks to sergeant. Eventually, I took responsibility for communications within my unit.",
-    "detail": "Becoming a radio operator, advancing to sergeant, and assuming unit communications responsibility.",
+    "narration": "I trained as a radio operator. In the field, reliable communication is a responsibility: people depend on the message reaching the right place at the right time.",
+    "detail": "Becoming a radio operator while serving in 2REI's 4th Company.",
     "scene": "radio",
     "palette": "legion",
-    "image": ""
+    "image": "",
+    "waypoints": []
   },
   {
     "act": "ACT II · THE LEGION",
@@ -59,7 +73,12 @@ export const story = [
     "detail": "Deployments in the order Senegal, Mali, United Arab Emirates.",
     "scene": "desert",
     "palette": "legion",
-    "image": ""
+    "image": "",
+    "waypoints": [
+      "senegal",
+      "mali-1",
+      "uae"
+    ]
   },
   {
     "act": "ACT II · THE LEGION",
@@ -69,7 +88,10 @@ export const story = [
     "detail": "First RCA mission: temporarily attached from 4th Company to CCL as a radio operator.",
     "scene": "radio",
     "palette": "legion",
-    "image": ""
+    "image": "",
+    "waypoints": [
+      "rca-1"
+    ]
   },
   {
     "act": "ACT II · THE LEGION",
@@ -79,7 +101,23 @@ export const story = [
     "detail": "Second RCA mission: deployed with 4th Company, then assigned to EUTM-RCA/MINUSCA liaison because of radio operator experience and English fluency.",
     "scene": "network",
     "palette": "legion",
-    "image": ""
+    "image": "",
+    "waypoints": [
+      "rca-2"
+    ]
+  },
+  {
+    "act": "ACT II · THE LEGION",
+    "place": "4RE · 4TH COMPANY · CIC · CASTELNAUDARY",
+    "title": "Training for responsibility.",
+    "narration": "I returned to Castelnaudary twice for further instruction with 4RE's 4th Company, CIC. Each training period lasted four months. Those courses marked my progression to sergeant and to the role of communications NCO.",
+    "detail": "Two four-month periods of training at Castelnaudary's 4RE, 4th Company CIC, during progression to sergeant and communications NCO.",
+    "scene": "rank",
+    "palette": "legion",
+    "image": "",
+    "waypoints": [
+      "castelnaudary-cic"
+    ]
   },
   {
     "act": "ACT II · THE LEGION",
@@ -89,7 +127,11 @@ export const story = [
     "detail": "Deployment to Martinique, followed by a return to Mali.",
     "scene": "flight",
     "palette": "legion",
-    "image": ""
+    "image": "",
+    "waypoints": [
+      "martinique",
+      "mali-2"
+    ]
   },
   {
     "act": "ACT II · THE LEGION",
@@ -99,27 +141,36 @@ export const story = [
     "detail": "Final mission: maritime deployment aboard a ship involving Côte d’Ivoire.",
     "scene": "ship",
     "palette": "legion",
-    "image": ""
+    "image": "",
+    "waypoints": [
+      "cote-ivoire"
+    ]
   },
   {
     "act": "ACT II · THE LEGION",
-    "place": "2REI · CCL COMPANY",
+    "place": "2REI · CCL · NÎMES",
     "title": "The next rank.",
-    "narration": "I moved to the CCL company for around one year. During that period, I was promoted to sergent-chef.",
-    "detail": "One year with the CCL company and promotion to sergent-chef.",
+    "narration": "After roughly ten years with the 4th Company, I transferred to CCL (Compagnie de commandement et de logistique) and served as one of its communications NCOs. During approximately one year there, I was promoted to sergent-chef.",
+    "detail": "Transferring from 4th Company to the CCL, serving as communications NCO and becoming sergent-chef.",
     "scene": "rank",
     "palette": "legion",
-    "image": ""
+    "image": "",
+    "waypoints": [
+      "nimes-ccl"
+    ]
   },
   {
     "act": "ACT II · THE LEGION",
-    "place": "4e RÉGIMENT ÉTRANGER · CASTELNAUDARY",
-    "title": "From service to instruction.",
-    "narration": "I returned to Castelnaudary, this time to the 5th Company, CCS (Compagnie d'instruction des spécialistes), as deputy section leader.",
-    "detail": "Returning to 4RE, 5th Company (CCS), as deputy section leader.",
+    "place": "4RE · 5TH COMPANY · CCS · CASTELNAUDARY",
+    "title": "Passing experience forward.",
+    "narration": "I returned to 4RE in Castelnaudary, this time to the 5th Company (CCS) as deputy section leader. After years of operations, my responsibility was also to help train and guide the next generation.",
+    "detail": "Returning to 4RE's 5th Company, CCS, as deputy section leader.",
     "scene": "people",
     "palette": "legion",
-    "image": ""
+    "image": "",
+    "waypoints": [
+      "castelnaudary-ccs"
+    ]
   },
   {
     "act": "ACT III · REINVENTION",
@@ -129,7 +180,8 @@ export const story = [
     "detail": "Choosing a family-centred civilian future after the COVID-19 period.",
     "scene": "gate",
     "palette": "transition",
-    "image": ""
+    "image": "",
+    "waypoints": []
   },
   {
     "act": "ACT III · REINVENTION",
@@ -139,7 +191,8 @@ export const story = [
     "detail": "Leaving the French Foreign Legion in 2022 after approximately thirteen years.",
     "scene": "gate",
     "palette": "transition",
-    "image": ""
+    "image": "",
+    "waypoints": []
   },
   {
     "act": "ACT III · REINVENTION",
@@ -149,7 +202,8 @@ export const story = [
     "detail": "CMFP training in systems and networks, ending September 2023.",
     "scene": "servers",
     "palette": "transition",
-    "image": ""
+    "image": "",
+    "waypoints": []
   },
   {
     "act": "ACT III · REINVENTION",
@@ -159,7 +213,8 @@ export const story = [
     "detail": "Beginning a civilian IT career in France.",
     "scene": "servers",
     "palette": "transition",
-    "image": ""
+    "image": "",
+    "waypoints": []
   },
   {
     "act": "ACT IV · A NEW MISSION",
@@ -169,6 +224,9 @@ export const story = [
     "detail": "Working with voice backbone operations and telecommunications regulation at Mixvoip.",
     "scene": "network",
     "palette": "future",
-    "image": ""
+    "image": "",
+    "waypoints": [
+      "luxembourg"
+    ]
   }
 ];
