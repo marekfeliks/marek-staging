@@ -26,7 +26,7 @@
         <span class="header-center">AN INTERACTIVE BIOGRAPHY</span>
         <a class="header-link" href="#afterword">THE PERSON BEHIND THE STORY <span aria-hidden="true">↗</span></a>
       </header>
-      <div class="scene-info" aria-hidden="true"><span>ARCHIVE / MF</span><span id="side-index">01—17</span></div>
+      <div class="scene-info" aria-hidden="true"><span>ARCHIVE / MF</span><span id="side-index">01—18</span></div>
       <div class="chapter-content" id="chapter-content" aria-live="polite" aria-atomic="true">
         <div class="eyebrow"><span class="eyebrow-line"></span><span id="act-label">ACT I · THE DEPARTURE</span></div>
         <p class="place" id="place-label">POLAND → FRANCE · AUGUST 2009</p>
@@ -36,14 +36,14 @@
       </div>
       <div class="film-footer">
         <div class="timeline-top">
-          <div class="timeline-title">THE JOURNEY <span class="muted">/ <span id="chapter-count">17</span> CHAPTERS</span></div>
-          <div class="timecode"><span id="chapter-number">01</span><span class="timecode-separator"> / </span><span id="chapter-total">17</span></div>
+          <div class="timeline-title">THE JOURNEY <span class="muted">/ <span id="chapter-count">18</span> CHAPTERS</span></div>
+          <div class="timecode"><span id="chapter-number">01</span><span class="timecode-separator"> / </span><span id="chapter-total">18</span></div>
         </div>
         <div class="scrub-area">
           <div class="tick-labels"><span>DEPARTURE</span><span>THE LEGION</span><span>REINVENTION</span><span>LUXEMBOURG</span></div>
           <div class="scrub-track">
             <div class="track-line" aria-hidden="true"><div class="track-fill" id="track-fill"></div></div>
-            <input id="scrubber" class="scrubber" type="range" min="0" max="16" value="0" step="1" aria-label="Choose story chapter">
+            <input id="scrubber" class="scrubber" type="range" min="0" max="17" value="0" step="1" aria-label="Choose story chapter">
             <div class="chapter-dots" id="chapter-dots" aria-hidden="true"></div>
           </div>
         </div>
@@ -54,9 +54,68 @@
             <button class="button-plain icon-control" id="next" type="button" aria-label="Next chapter" title="Next chapter">→</button>
             <button class="button-plain chapters-trigger" id="chapter-index-open" type="button" aria-haspopup="dialog" aria-controls="chapter-index-dialog">ALL CHAPTERS <span aria-hidden="true">☷</span></button><div class="control-tip">USE ← → TO EXPLORE</div>
           </div>
-          <a href="#afterword" class="explore-link">BEYOND THE STORY <span aria-hidden="true">↓</span></a>
+          <a href="#atlas" class="explore-link">EXPLORE THE ROUTE <span aria-hidden="true">↓</span></a>
         </div>
       </div>
+    </section>
+    <section class="atlas" id="atlas" aria-labelledby="atlas-title">
+      <div class="atlas-strap"><span>ARCHIVE / 02</span><span>AN INTERACTIVE ROUTE</span></div>
+      <header class="atlas-heading">
+        <div>
+          <p class="section-overline">FROM ONE DECISION TO A WORLD OF EXPERIENCE</p>
+          <h2 id="atlas-title">One journey.<br><em>Many places.</em></h2>
+          <p>Follow the places that shaped the story. Choose a milestone to revisit its chapter, or replay the complete route.</p>
+        </div>
+        <a class="atlas-return" href="#film">↑ RETURN TO THE STORY</a>
+      </header>
+      <div class="atlas-board">
+        <div class="atlas-map-panel">
+          <div class="atlas-map-toolbar">
+            <span class="atlas-coordinate-mark">FELIKS / JOURNEY ATLAS</span>
+            <div class="atlas-view-switch" role="group" aria-label="Map region">
+              <button type="button" data-atlas-view="world" aria-pressed="true">WORLD</button>
+              <button type="button" data-atlas-view="europe" aria-pressed="false">EUROPE DETAIL</button>
+            </div>
+          </div>
+          <svg id="atlas-svg" class="atlas-svg" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid meet" role="group" aria-label="Interactive geographic journey map">
+            <defs>
+              <pattern id="atlas-grid-pattern" width="80" height="80" patternUnits="userSpaceOnUse">
+                <path d="M80 0H0V80" fill="none" stroke="#7095a5" stroke-opacity=".11" stroke-width="1"/>
+              </pattern>
+              <radialGradient id="atlas-ocean-glow" cx="60%" cy="42%" r="75%">
+                <stop offset="0%" stop-color="#1a3442"/>
+                <stop offset="100%" stop-color="#07111c"/>
+              </radialGradient>
+            </defs>
+            <rect width="1200" height="600" fill="url(#atlas-ocean-glow)"/>
+            <rect width="1200" height="600" fill="url(#atlas-grid-pattern)"/>
+            <path id="atlas-land" class="atlas-land" d=""/>
+            <g id="atlas-paths" class="atlas-route-layer" aria-hidden="true"></g>
+            <g id="atlas-pins" class="atlas-pins-layer"></g>
+          </svg>
+          <div class="atlas-map-foot">
+            <span>ROUTE / SCHEMATIC</span><span>SELECTED POINTS ARE GEOGRAPHIC REFERENCES</span>
+          </div>
+        </div>
+        <aside class="atlas-aside" aria-label="Selected journey milestone">
+          <div class="atlas-aside-top"><span>CURRENT MILESTONE</span><span id="atlas-step">01 / 17</span></div>
+          <div class="atlas-current">
+            <p id="atlas-current-context" class="atlas-current-context">Departure · Chapter 01</p>
+            <h3 id="atlas-current-title">Poland</h3>
+            <p id="atlas-current-description">A decision to change.</p>
+          </div>
+          <div class="atlas-mini-progress"><div id="atlas-progress" class="atlas-mini-progress-fill"></div></div>
+          <div class="atlas-map-controls">
+            <button type="button" id="atlas-prev" aria-label="Previous journey location">← PREVIOUS</button>
+            <button type="button" id="atlas-next" aria-label="Next journey location">NEXT →</button>
+          </div>
+          <button type="button" id="atlas-replay" class="atlas-replay" aria-pressed="false">↻ REPLAY ROUTE</button>
+          <p class="atlas-note">Illustrative chronology, not actual flight, maritime, or operational routes. Mission points mark countries rather than military positions.</p>
+          <span id="atlas-status" class="visually-hidden" role="status" aria-live="polite">Journey map ready.</span>
+        </aside>
+      </div>
+      <div class="atlas-stop-heading"><span>WAYPOINT ARCHIVE</span><span>SELECT A LOCATION TO FOLLOW THE STORY</span></div>
+      <div id="atlas-stop-list" class="atlas-stop-list" aria-label="Chronological journey locations"></div>
     </section>
     <section class="afterword" id="afterword" aria-labelledby="afterword-title">
       <div class="afterword-label">AFTER THE FINAL FRAME <span>— 01</span></div>
@@ -66,8 +125,12 @@
           <h2 id="afterword-title">Different worlds.<br><em>One mission.</em></h2>
         </div>
         <div class="afterword-copy">
-          <p>From radio communications in uniform to voice infrastructure in Luxembourg, technology has been a constant. So has the responsibility to keep people connected.</p>
-          <p>Today, my experience combines military leadership, IT systems and networks, and telecommunications operations.</p>
+          <p>From field radio communications and non-commissioned officer leadership to civilian systems and networks, and now voice backbone operations in Luxembourg: the environments changed, but the responsibility to keep people connected did not.</p>
+          <p>I bring together technical decision-making, international communication, practical instruction, and experience leading teams under pressure.</p>
+          <div class="afterword-actions">
+            <a href="https://www.linkedin.com/in/marekfeliks" target="_blank" rel="noopener noreferrer" class="afterword-action afterword-action-primary" aria-label="View Marek Feliks's LinkedIn profile">VIEW LINKEDIN ↗</a>
+            <a href="mailto:marek@feliks.fr" class="afterword-action" aria-label="Email Marek Feliks">CONTACT BY EMAIL ↗</a>
+          </div>
           <a href="#film" class="return-link">↑ RETURN TO THE BEGINNING</a>
         </div>
       </div>
