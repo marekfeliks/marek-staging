@@ -24,3 +24,43 @@
 .chapter-index-arrow{color:#d7ac77}
 @media(max-width:850px){.chapters-trigger{padding:10px;font-size:9px}.chapter-index-list{grid-template-columns:1fr;gap:24px}.chapter-index-dialog{max-height:92svh}.chapter-index-shell{padding:22px}}
 @media(max-width:460px){.control-bar{flex-wrap:wrap}.chapters-trigger{letter-spacing:.06em}.chapter-index-header h2{font-size:38px}}
+
+
+/* The film must never crop its timeline when a chapter has a long title.
+   Keep the controls in the fixed film footer; scroll only the narration area. */
+.film{min-height:0}
+.chapter-content{
+  flex:1 1 auto;
+  min-height:0;
+  overflow-y:auto;
+  overflow-x:hidden;
+  overscroll-behavior:contain;
+  scrollbar-width:thin;
+  scrollbar-color:#d7ac7777 transparent;
+  display:flex;
+  flex-direction:column;
+  justify-content:safe center;
+  margin:0;
+  padding-top:20px;
+  padding-bottom:20px;
+}
+.chapter-content>*{flex-shrink:0}
+.chapter-content.long-title h1{
+  font-size:clamp(38px,min(5.1vw,8svh),76px);
+  line-height:1.06;
+}
+@media(max-height:850px){
+  .site-header{padding-top:18px;padding-bottom:16px}
+  .eyebrow{margin-bottom:16px}
+  .place{margin-bottom:10px}
+  .narration{margin-top:16px;line-height:1.5}
+  .chapter-accent{margin-top:16px}
+  .film-footer{margin-top:12px;margin-bottom:16px}
+  .timeline-top{margin-bottom:8px}
+  .tick-labels{margin-bottom:8px}
+  .control-bar{margin-top:9px}
+}
+@media(max-width:460px){
+  .film{min-height:0}
+  .chapter-content{padding-top:16px;padding-bottom:16px}
+}
