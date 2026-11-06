@@ -7,6 +7,8 @@ const reduce=window.matchMedia('(prefers-reduced-motion: reduce)');
 let current=0,playing=false,timer=null;
 for(let i=0;i<story.length;i++){const d=document.createElement('span');d.className='chapter-dot';d.setAttribute('aria-hidden','true');dots.append(d)}
 slider.max=story.length-1;
+$('#chapter-count').textContent=story.length;
+$('#chapter-total').textContent=story.length;
 function render(index,animate=true){
  current=Math.max(0,Math.min(story.length-1,index));
  const c=story[current],motion=animate&&!reduce.matches;
