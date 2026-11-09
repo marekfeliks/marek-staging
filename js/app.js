@@ -32,16 +32,61 @@ function render(index,animate=true){
 }
 function stop(){playing=false;clearInterval(timer);timer=null;$('#play-glyph').textContent='▶';$('#play-label').textContent='PLAY STORY';play.setAttribute('aria-label','Play documentary')}
 function start(){if(playing)return;if(current===story.length-1)render(0);playing=true;$('#play-glyph').textContent='Ⅱ';$('#play-label').textContent='PAUSE STORY';play.setAttribute('aria-label','Pause documentary');timer=setInterval(()=>{if(current<story.length-1)render(current+1);else stop()},PLAY_CHAPTER_MS)}
-function navigate(i){if(playing)stop();render(i);history.replaceState(null,'','#chapter-'+(current+1))}
+function navigate(i){if(playing)stop();render(i);cleanAddressBar()}
 $('#previous').addEventListener('click',()=>navigate(current-1));
 $('#next').addEventListener('click',()=>navigate(current+1));
 slider.addEventListener('input',e=>navigate(Number(e.target.value)));
 play.addEventListener('click',()=>playing?stop():start());
 window.addEventListener('keydown',e=>{if(e.altKey||e.ctrlKey||e.metaKey||document.querySelector('#chapter-index-dialog')?.open||document.activeElement===slider)return;if(['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName))return;if(!film.contains(document.activeElement)&&window.scrollY>film.clientHeight*.5)return;if(e.key==='ArrowRight'){e.preventDefault();navigate(current+1)}if(e.key==='ArrowLeft'){e.preventDefault();navigate(current-1)}});
 document.addEventListener('visibilitychange',()=>{if(document.hidden)stop()});
-function chapterFromHash(){const match=location.hash.match(/^#chapter-(\d+)$/);return match?Math.max(0,Math.min(story.length-1,Number(match[1])-1)):null}
-window.addEventListener('hashchange',()=>{const chosen=chapterFromHash();if(chosen!==null){stop();render(chosen)}});
+// Support old deep links, but never leave query strings or fragments in the address.
+function cleanAddressBar(){
+ if(location.search||location.hash) history.replaceState(history.state,'',location.pathname);
+}
+function chapterFromHash(hash=location.hash){
+ const match=hash.match(/^#chapter-(\d+)$/);
+ return match?Math.max(0,Math.min(story.length-1,Number(match[1])-1)):null;
+}
+function scrollToSection(hash,focus=false){
+ if(!hash||hash==='#')return false;
+ let id;
+ try{id=decodeURIComponent(hash.slice(1))}catch{return false}
+ const target=document.getElementById(id);
+ if(!target)return false;
+ target.scrollIntoView({behavior:reduce.matches?'auto':'smooth',block:'start'});
+ if(focus){
+   if(!target.hasAttribute('tabindex'))target.setAttribute('tabindex','-1');
+   target.focus({preventScroll:true});
+ }
+ return true;
+}
+// Keep internal section navigation functional without adding a #fragment.
+document.addEventListener('click',event=>{
+ if(event.defaultPrevented||event.button!==0||event.ctrlKey||event.metaKey||event.altKey||event.shiftKey)return;
+ const link=event.target.closest?.('a[href^="#"]');
+ if(!link)return;
+ const hash=link.getAttribute('href');
+ if(!hash||hash==='#')return;
+ let id;
+ try{id=decodeURIComponent(hash.slice(1))}catch{return}
+ if(!document.getElementById(id))return;
+ event.preventDefault();
+ scrollToSection(hash,link.classList.contains('skip-link'));
+ cleanAddressBar();
+});
+window.addEventListener('hashchange',()=>{
+ const hash=location.hash;
+ const chosen=chapterFromHash(hash);
+ if(chosen!==null){stop();render(chosen)}
+ else scrollToSection(hash);
+ cleanAddressBar();
+});
+const initialHash=window.__feliksIncomingHash||location.hash;
 $('#year').textContent=new Date().getFullYear();
-render(chapterFromHash()??0,false);
+render(chapterFromHash(initialHash)??0,false);
+cleanAddressBar();
 setupChapterIndex({story,navigate,getCurrent:()=>current});
 setupJourneyMap({story,navigate,getCurrent:()=>current});
+if(initialHash&&chapterFromHash(initialHash)===null){
+ requestAnimationFrame(()=>scrollToSection(initialHash,initialHash==='#chapter-title'));
+}

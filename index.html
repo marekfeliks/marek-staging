@@ -11,9 +11,11 @@
   <link rel="stylesheet" href="./css/style.css?v=20261109-mobile-buttons">
   <script type="module" src="./js/app.js"></script>
   <script>
-    // Hide referral/query parameters in the address bar; preserve chapter anchors.
-    if (window.location.search) {
-      window.history.replaceState(window.history.state, '', window.location.pathname + window.location.hash);
+    // Keep the browser address clean, including for older chapter/section links.
+    // The documentary reads the original fragment once before using clean URLs.
+    window.__feliksIncomingHash = window.location.hash;
+    if (window.location.search || window.location.hash) {
+      window.history.replaceState(window.history.state, '', window.location.pathname);
     }
   </script>
 </head>
