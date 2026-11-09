@@ -7,6 +7,7 @@ const film=$('#film'),backdrop=$('#backdrop'),drawing=$('#art-holder'),copy=$('#
 const reduce=window.matchMedia('(prefers-reduced-motion: reduce)');
 // Automatic playback is a quick overview; visitors can pause or navigate to read in depth.
 const PLAY_CHAPTER_MS=5000;
+const FINAL_CHAPTER_MS=15000;
 let current=0,playing=false,timer=null;
 for(let i=0;i<story.length;i++){const d=document.createElement('span');d.className='chapter-dot';d.setAttribute('aria-hidden','true');dots.append(d)}
 slider.max=story.length-1;
@@ -15,6 +16,7 @@ $('#chapter-total').textContent=story.length;
 function render(index,animate=true){
  current=Math.max(0,Math.min(story.length-1,index));
  const c=story[current],motion=animate&&!reduce.matches;
+ $('#identity-line').hidden=current!==0;
  copy.classList.remove('copy-enter');
  copy.classList.toggle('long-title', c.title.length > 28);
  copy.scrollTop=0;
@@ -30,8 +32,13 @@ function render(index,animate=true){
  if(motion)copy.classList.add('copy-enter');film.dataset.chapter=current+1;
  document.dispatchEvent(new CustomEvent('feliks:chapterchange',{detail:{index:current}}));
 }
-function stop(){playing=false;clearInterval(timer);timer=null;$('#play-glyph').textContent='▶';$('#play-label').textContent='PLAY STORY';play.setAttribute('aria-label','Play documentary')}
-function start(){if(playing)return;if(current===story.length-1)render(0);playing=true;$('#play-glyph').textContent='Ⅱ';$('#play-label').textContent='PAUSE STORY';play.setAttribute('aria-label','Pause documentary');timer=setInterval(()=>{if(current<story.length-1)render(current+1);else stop()},PLAY_CHAPTER_MS)}
+function stop(){playing=false;clearTimeout(timer);timer=null;$('#play-glyph').textContent='▶';$('#play-label').textContent='PLAY STORY';play.setAttribute('aria-label','Play documentary')}
+function scheduleNext(){
+ timer=setTimeout(()=>{
+  if(current<story.length-1){render(current+1);scheduleNext()}else stop();
+ },current===story.length-1?FINAL_CHAPTER_MS:PLAY_CHAPTER_MS);
+}
+function start(){if(playing)return;if(current===story.length-1)render(0);playing=true;$('#play-glyph').textContent='Ⅱ';$('#play-label').textContent='PAUSE STORY';play.setAttribute('aria-label','Pause documentary');scheduleNext()}
 function navigate(i){if(playing)stop();render(i);cleanAddressBar()}
 $('#previous').addEventListener('click',()=>navigate(current-1));
 $('#next').addEventListener('click',()=>navigate(current+1));

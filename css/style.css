@@ -296,3 +296,16 @@
     line-height:1;
   }
 }
+
+
+/* Opening identity — visible for chapter 1, without crowding later scenes. */
+.identity-line{
+  max-width:650px;margin:0 0 20px;color:#d4dcdf;
+  font-size:12px;letter-spacing:.07em;line-height:1.5;
+}
+.identity-line strong{color:#f4d6a7;font-weight:700;letter-spacing:.13em}
+.identity-line[hidden]{display:none!important}
+@media(max-width:460px){
+  .identity-line{font-size:11px;letter-spacing:.025em;line-height:1.4;margin-bottom:12px}
+  .identity-line strong{letter-spacing:.07em}
+}
