@@ -5,6 +5,8 @@ import {setupJourneyMap} from './journey.js';
 const $=s=>document.querySelector(s);
 const film=$('#film'),backdrop=$('#backdrop'),drawing=$('#art-holder'),copy=$('#chapter-content'),slider=$('#scrubber'),dots=$('#chapter-dots'),play=$('#play-pause');
 const reduce=window.matchMedia('(prefers-reduced-motion: reduce)');
+// Automatic playback is a quick overview; visitors can pause or navigate to read in depth.
+const PLAY_CHAPTER_MS=5000;
 let current=0,playing=false,timer=null;
 for(let i=0;i<story.length;i++){const d=document.createElement('span');d.className='chapter-dot';d.setAttribute('aria-hidden','true');dots.append(d)}
 slider.max=story.length-1;
@@ -29,7 +31,7 @@ function render(index,animate=true){
  document.dispatchEvent(new CustomEvent('feliks:chapterchange',{detail:{index:current}}));
 }
 function stop(){playing=false;clearInterval(timer);timer=null;$('#play-glyph').textContent='▶';$('#play-label').textContent='PLAY STORY';play.setAttribute('aria-label','Play documentary')}
-function start(){if(playing)return;if(current===story.length-1)render(0);playing=true;$('#play-glyph').textContent='Ⅱ';$('#play-label').textContent='PAUSE STORY';play.setAttribute('aria-label','Pause documentary');timer=setInterval(()=>{if(current<story.length-1)render(current+1);else stop()},7800)}
+function start(){if(playing)return;if(current===story.length-1)render(0);playing=true;$('#play-glyph').textContent='Ⅱ';$('#play-label').textContent='PAUSE STORY';play.setAttribute('aria-label','Pause documentary');timer=setInterval(()=>{if(current<story.length-1)render(current+1);else stop()},PLAY_CHAPTER_MS)}
 function navigate(i){if(playing)stop();render(i);history.replaceState(null,'','#chapter-'+(current+1))}
 $('#previous').addEventListener('click',()=>navigate(current-1));
 $('#next').addEventListener('click',()=>navigate(current+1));
