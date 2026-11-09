@@ -6,11 +6,11 @@ A public **development preview** of the personal cinematic documentary. The stag
 
 ## Current prototype
 
-- 18 English-language chapters covering Poland, recruitment at Nice/Aubagne, initial training (2nd CEV), service at 2REI, overseas missions, two further periods at 4RE's 4th Company/CIC, promotion to sergent-chef during CCL, deputy section leadership at 4RE, and civilian IT/telecom work.
+- 8 concise English-language moments covering Poland, recruitment at Nice/Aubagne, initial training (2nd CEV), 2REI and overseas missions, two periods of CIC specialist instruction, CCL and 4RE leadership, family-centred transition, and IT/telecom work. There is deliberately **no second extended-story mode**.
 - Film-style chapter navigation, keyboard controls, autoplay, shareable chapter links and chapter index.
 - **Journey atlas:** a self-contained interactive SVG world map with geographic country-level markers, a European detail view, a chronological replay, and clickable milestones linked to story chapters. Illustrated route lines are **not actual travel trajectories**. No maps API, CDN, cookies, or third-party tracking.
 - Entirely vector/graphics based: no personal photographs or portraits.
-- Professional epilogue linking to LinkedIn and mailto:marek@feliks.fr.
+- LinkedIn and email links remain visible in the main header (including mobile), with the same actions repeated in the epilogue.
 - Reduced-motion styles and mobile responsive layout.
 
 ## Editing and release
